@@ -1,0 +1,28 @@
+<%- include('partials/header', { title: title }) %>
+
+<section class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Directory</p>
+    <h1><%= title %></h1>
+    <p class="page-header__lede">Groups doing steady, on-the-ground work across the four service categories.</p>
+  </div>
+</section>
+
+<section class="org-grid-section">
+  <div class="wrap">
+    <div class="org-grid">
+      <% organizations.forEach((org) => { %>
+        <article class="org-card">
+          <img class="org-card__image" src="<%= org.image %>" alt="Illustration representing <%= org.name %>">
+          <div class="org-card__body">
+            <span class="tag tag--<%= org.accent %>"><%= org.category %></span>
+            <h2><%= org.name %></h2>
+            <p><%= org.description %></p>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

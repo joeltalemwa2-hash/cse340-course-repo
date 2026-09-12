@@ -1,0 +1,44 @@
+<%- include('partials/header', { title: title }) %>
+
+<section class="hero">
+  <div class="wrap hero__inner">
+    <p class="eyebrow">A local volunteer directory</p>
+    <h1 class="hero__headline">Service, organized by neighborhood.</h1>
+    <p class="hero__lede">Find local organizations and service projects worth your time.</p>
+    <div class="hero__actions">
+      <a href="/organizations" class="btn btn--primary">Browse organizations</a>
+      <a href="/projects" class="btn btn--ghost">See service projects</a>
+    </div>
+  </div>
+</section>
+
+<section class="category-strip">
+  <div class="wrap">
+    <h2 class="section-heading">Organized around four categories</h2>
+    <ul class="tag-row">
+      <li><a class="tag tag--moss" href="/categories">Environmental</a></li>
+      <li><a class="tag tag--denim" href="/categories">Educational</a></li>
+      <li><a class="tag tag--brick" href="/categories">Community Service</a></li>
+      <li><a class="tag tag--rose" href="/categories">Health and Wellness</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="about-grid">
+  <div class="wrap about-grid__inner">
+    <div class="about-card">
+      <h3>Vetted organizations</h3>
+      <p>Every listing includes what a group actually does day to day, not just a mission statement.</p>
+    </div>
+    <div class="about-card">
+      <h3>Real, recurring projects</h3>
+      <p>Each organization runs specific service projects with a schedule, so you know when to show up.</p>
+    </div>
+    <div class="about-card">
+      <h3>Built for browsing</h3>
+      <p>Filter by category first, or explore the full list of organizations and projects at your own pace.</p>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,30 @@
+<%- include('partials/header', { title: title }) %>
+
+<section class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">On the calendar</p>
+    <h1><%= title %></h1>
+    <p class="page-header__lede">Specific, recurring projects you can plan around — not just open-ended volunteering.</p>
+  </div>
+</section>
+
+<section class="project-list-section">
+  <div class="wrap">
+    <ul class="project-list">
+      <% projects.forEach((project) => { %>
+        <li class="project-row">
+          <div class="project-row__category">
+            <span class="tag tag--<%= project.accent %>"><%= project.category %></span>
+          </div>
+          <div class="project-row__body">
+            <h2><%= project.name %></h2>
+            <p><%= project.description %></p>
+            <p class="project-row__meta"><%= project.organization %> &middot; <%= project.schedule %></p>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

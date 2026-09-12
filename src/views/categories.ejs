@@ -1,0 +1,24 @@
+<%- include('partials/header', { title: title }) %>
+
+<section class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Browse by focus</p>
+    <h1><%= title %></h1>
+    <p class="page-header__lede">Every organization and project on Good Nearby falls into one of these four categories.</p>
+  </div>
+</section>
+
+<section class="category-grid-section">
+  <div class="wrap">
+    <div class="category-grid">
+      <% categories.forEach((category) => { %>
+        <article class="category-card category-card--<%= category.accent %>">
+          <h2><%= category.name %></h2>
+          <p><%= category.description %></p>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
