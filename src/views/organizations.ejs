@@ -4,20 +4,20 @@
   <div class="wrap">
     <p class="eyebrow">Directory</p>
     <h1><%= title %></h1>
-    <p class="page-header__lede">Groups doing steady, on-the-ground work across the four service categories.</p>
+    <p class="page-header__lede">Groups doing steady, on-the-ground work across our service area.</p>
   </div>
 </section>
 
 <section class="org-grid-section">
   <div class="wrap">
     <div class="org-grid">
-      <% organizations.forEach((org) => { %>
+      <% organizations.forEach((organization) => { %>
         <article class="org-card">
-          <img class="org-card__image" src="<%= org.image %>" alt="Illustration representing <%= org.name %>">
+          <img class="org-card__image" src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo">
           <div class="org-card__body">
-            <span class="tag tag--<%= org.accent %>"><%= org.category %></span>
-            <h2><%= org.name %></h2>
-            <p><%= org.description %></p>
+            <h2><%= organization.name %></h2>
+            <p><%= organization.description %></p>
+            <p class="org-card__meta"><%= organization.contact_email %></p>
           </div>
         </article>
       <% }) %>
