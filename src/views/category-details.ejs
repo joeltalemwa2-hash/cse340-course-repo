@@ -1,0 +1,27 @@
+<%- include('partials/header', { title: title }) %>
+
+<section class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Category</p>
+    <h1><%= category.name %></h1>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="wrap">
+    <h2><a href="/organizations/<%= organization.organization_id %>"><%= organization.name %>Projects in this category</a></h2>
+    <% if (projects.length === 0) { %>
+      <p>No projects in this category yet.</p>
+    <% } else { %>
+      <ul class="detail-links">
+        <% projects.forEach((project) => { %>
+          <li><a href="/projects/<%= project.project_id %>"><%= project.title %></a></li>
+        <% }) %>
+      </ul>
+    <% } %>
+
+    <a class="btn btn--ghost" href="/categories">&larr; Back to categories</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
