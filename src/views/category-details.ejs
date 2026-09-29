@@ -9,7 +9,25 @@
 
 <section class="detail-section">
   <div class="wrap">
-    <h2><a href="/organizations/<%= organization.organization_id %>"><%= organization.name %>Projects in this category</a></h2>
+    <h2>Projects in this category</h2>
+
+<% if (projects.length === 0) { %>
+
+  <p>No projects in this category yet.</p>
+
+<% } else { %>
+
+  <ul class="detail-links">
+    <% projects.forEach((project) => { %>
+      <li>
+        <a href="/projects/<%= project.project_id %>">
+          <%= project.title %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+
+<% } %>
     <% if (projects.length === 0) { %>
       <p>No projects in this category yet.</p>
     <% } else { %>
