@@ -12,6 +12,7 @@ CREATE TABLE organization (
 -- ========================================
 -- Insert sample data: Organizations
 -- ========================================
+-- Replace these filenames to change logos; image files live in public/images/.
 INSERT INTO organization (name, description, contact_email, logo_filename)
 VALUES
 ('BrightFuture Builders', 'A nonprofit focused on improving community infrastructure through sustainable construction projects.', 'info@brightfuturebuilders.org', 'brightfuture-logo.png'),

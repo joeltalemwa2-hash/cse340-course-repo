@@ -13,6 +13,7 @@
     <div class="org-grid">
       <% organizations.forEach((organization) => { %>
         <article class="org-card">
+          <!-- Replace the matching image in public/images/; filenames are mapped in src/setup.sql. -->
           <img class="org-card__image" src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo">
           <div class="org-card__body">
             <h2>
