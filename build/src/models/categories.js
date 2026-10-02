@@ -87,12 +87,14 @@ const assignCategoryToProject = async(categoryId, projectId) => {
 }
 
 const updateCategoryAssignments = async(projectId, categoryIds) => {
+    // First, remove existing category assignments for the project
     const deleteQuery = `
         DELETE FROM project_category
         WHERE project_id = $1;
     `;
     await db.query(deleteQuery, [projectId]);
 
+    // Next, add the new category assignments
     for (const categoryId of categoryIds) {
         await assignCategoryToProject(categoryId, projectId);
     }

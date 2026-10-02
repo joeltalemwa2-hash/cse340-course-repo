@@ -67,6 +67,11 @@ const getProjectsByCategoryId = async(id) => {
     return result.rows;
 }
 
+/**
+ * Creates a new service project in the database.
+ * Note: this project's table is named service_project (not project) in this
+ * application's schema -- everything else follows the course's exact pattern.
+ */
 const createProject = async(title, description, location, date, organizationId) => {
     const query = `
         INSERT INTO service_project (title, description, location, date, organization_id)

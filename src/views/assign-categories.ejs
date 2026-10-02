@@ -1,0 +1,36 @@
+<%- include('partials/header', { title: title }) %>
+
+<section class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Service Project</p>
+    <h1><%= projectDetails.title %></h1>
+    <p class="page-header__lede">Choose which categories this project belongs to.</p>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="wrap">
+    <form class="site-form" action="/assign-categories/<%= projectId %>" method="POST">
+      <div class="form-group checkbox-list">
+        <% categories.forEach((category) => { %>
+          <div class="checkbox-row">
+            <input
+              type="checkbox"
+              id="category-<%= category.category_id %>"
+              name="categoryIds"
+              value="<%= category.category_id %>"
+              <%= assignedCategories.some((assigned) => assigned.category_id === category.category_id) ? 'checked' : '' %>
+            >
+            <label for="category-<%= category.category_id %>"><%= category.name %></label>
+          </div>
+        <% }) %>
+      </div>
+
+      <button type="submit" class="btn btn--primary">Update Categories</button>
+    </form>
+
+    <p><a class="btn btn--ghost" href="/project/<%= projectId %>">&larr; Back to project</a></p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
