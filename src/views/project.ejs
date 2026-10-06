@@ -18,10 +18,12 @@
       Sponsored by <a href="/organization/<%= projectDetails.organization_id %>"><%= projectDetails.organization_name %></a>
     </p>
 
-    <p>
-      <a class="btn btn--ghost" href="/edit-project/<%= projectDetails.project_id %>">Edit Project</a>
-      <a class="btn btn--ghost" href="/assign-categories/<%= projectDetails.project_id %>">Edit Categories</a>
-    </p>
+        <% if (user && user.role_name === 'admin') { %>
+      <p>
+        <a class="btn btn--ghost" href="/edit-project/<%= projectDetails.project_id %>">Edit Project</a>
+        <a class="btn btn--ghost" href="/assign-categories/<%= projectDetails.project_id %>">Edit Categories</a>
+      </p>
+    <% } %>
 
     <h2>Categories</h2>
     <% if (categories.length === 0) { %>

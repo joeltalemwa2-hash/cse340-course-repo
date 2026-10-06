@@ -1,0 +1,26 @@
+<%- include('partials/header', { title: title }) %>
+
+<section class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Admin</p>
+    <h1><%= title %></h1>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="wrap">
+    <ul class="detail-links">
+      <% users.forEach((user) => { %>
+        <li>
+          <strong><%= user.name %></strong>
+          &mdash; <%= user.email %>
+          &mdash; <%= user.role_name %>
+        </li>
+      <% }) %>
+    </ul>
+
+    <a class="btn btn--ghost" href="/dashboard">&larr; Back to dashboard</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

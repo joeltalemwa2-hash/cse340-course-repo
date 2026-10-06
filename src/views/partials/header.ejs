@@ -25,7 +25,13 @@
           <li><a href="/" class="<%= title === 'Home' ? 'is-active' : '' %>">Home</a></li>
           <li><a href="/organizations" class="<%= title === 'Our Partner Organizations' ? 'is-active' : '' %>">Organizations</a></li>
           <li><a href="/projects" class="<%= title === 'Service Projects' ? 'is-active' : '' %>">Service Projects</a></li>
-          <li><a href="/categories" class="<%= title === 'Categories' ? 'is-active' : '' %>">Categories</a></li>
+                    <li><a href="/categories" class="<%= title === 'Categories' ? 'is-active' : '' %>">Categories</a></li>
+          <% if (isLoggedIn) { %>
+            <li><a href="/logout">Logout</a></li>
+          <% } else { %>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+          <% } %>
         </ul>
       </nav>
     </div>

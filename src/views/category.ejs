@@ -9,7 +9,9 @@
 
 <section class="detail-section">
   <div class="wrap">
-    <p><a class="btn btn--ghost" href="/edit-category/<%= categoryDetails.category_id %>">Edit Category</a></p>
+        <% if (user && user.role_name === 'admin') { %>
+      <p><a class="btn btn--ghost" href="/edit-category/<%= categoryDetails.category_id %>">Edit Category</a></p>
+    <% } %>
 
     <h2>Projects in this category</h2>
     <% if (projects.length === 0) { %>

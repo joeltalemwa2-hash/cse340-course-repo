@@ -6,10 +6,13 @@
       <p class="eyebrow">A local volunteer directory</p>
       <h1 class="hero__headline">Service, organized by neighborhood.</h1>
       <p class="hero__lede">Find local organizations and service projects worth your time.</p>
-      <div class="hero__actions">
+            <div class="hero__actions">
         <a href="/organizations" class="btn btn--primary">Browse organizations</a>
         <a href="/projects" class="btn btn--ghost">See service projects</a>
       </div>
+      <% if (isLoggedIn) { %>
+        <p><a href="/dashboard">My Dashboard</a></p>
+      <% } %>
     </div>
     <div class="hero__media">
       <img src="/images/home-hero.svg" alt="Illustration of the four service categories connected around a central community hub" class="hero__image">
