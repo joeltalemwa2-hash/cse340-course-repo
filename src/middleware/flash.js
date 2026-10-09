@@ -1,5 +1,5 @@
 const flashMiddleware = (req, res, next) => {
-    req.flash = function(type, message) {
+        req.flash = (type, message) => {
         if (!req.session.flash) {
             req.session.flash = {
                 success: [],

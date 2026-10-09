@@ -11,6 +11,7 @@
   <div class="wrap">
     <p>Name: <%= name %></p>
     <p>Username: <%= email %></p>
+    <p>Role: <%= user.role_name %></p>
 
     <% if (user && user.role_name === 'admin') { %>
       <p><a class="btn btn--ghost" href="/users">View Registered Users</a></p>

@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS project_category, service_project, category, organization, users, roles CASCADE;
 -- ========================================
 -- Organization Table
 -- ========================================
