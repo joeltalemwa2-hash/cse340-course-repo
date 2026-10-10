@@ -46,6 +46,11 @@ import {
     showUsersPage
 } from './controllers/users.js'
 
+import {
+    processVolunteerForm,
+    processRemoveVolunteerForm
+} from './controllers/volunteers.js'
+
 const router = express.Router();
 
 // Home
@@ -93,6 +98,10 @@ router.get('/category/:id', showCategoryDetailsPage);
 // Assigning categories to a project
 router.get('/assign-categories/:projectId', requireRole('admin'), showAssignCategoriesForm);
 router.post('/assign-categories/:projectId', requireRole('admin'), processAssignCategoriesForm);
+
+// Volunteering for service projects (login required)
+router.post('/volunteer/:projectId', requireLogin, processVolunteerForm);
+router.post('/remove-volunteer/:projectId', requireLogin, processRemoveVolunteerForm);
 
 // Deliberately throws, to verify the 500 error handler works end to end
 router.get('/test-error', (req, res, next) => {

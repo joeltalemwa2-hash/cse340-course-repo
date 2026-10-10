@@ -704,6 +704,53 @@ a.tag:hover {
   color: var(--ink);
 }
 
+/* ---- Volunteering ---- */
+
+.volunteer-box {
+  margin: 24px 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--moss);
+  border-radius: var(--radius-md);
+  background: var(--paper-raised);
+}
+
+.volunteer-box p {
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.volunteer-box form {
+  margin: 0;
+}
+
+.volunteer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.volunteer-row form {
+  margin: 0;
+}
+
+.volunteer-row .detail-meta {
+  display: block;
+  margin: 4px 0 0;
+}
+
+button.btn {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn--small {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
 /* ---- Footer ---- */
 
 .site-footer {

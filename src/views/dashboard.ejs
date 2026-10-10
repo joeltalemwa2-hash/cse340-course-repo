@@ -16,6 +16,29 @@
     <% if (user && user.role_name === 'admin') { %>
       <p><a class="btn btn--ghost" href="/users">View Registered Users</a></p>
     <% } %>
+    
+    <h2>Projects I'm volunteering for</h2>
+    <% if (volunteerProjects.length === 0) { %>
+      <p>You haven't signed up to volunteer yet. <a href="/projects">Browse service projects</a>.</p>
+    <% } else { %>
+      <ul class="detail-links">
+        <% volunteerProjects.forEach((project) => { %>
+          <li class="volunteer-row">
+            <div>
+              <a href="/project/<%= project.project_id %>"><%= project.title %></a>
+              <span class="detail-meta">
+                <%= new Date(project.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                &middot; <%= project.location %> (<%= project.organization_name %>)
+              </span>
+            </div>
+            <form action="/remove-volunteer/<%= project.project_id %>" method="POST">
+              <input type="hidden" name="returnTo" value="dashboard">
+              <button type="submit" class="btn btn--ghost btn--small">Remove</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
   </div>
 </section>
 

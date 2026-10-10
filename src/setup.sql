@@ -1,5 +1,4 @@
-DROP TABLE IF EXISTS project_category, service_project, category, organization, users, roles CASCADE;
--- ========================================
+DROP TABLE IF EXISTS volunteer, project_category, service_project, category, organization, users, roles CASCADE;
 -- Organization Table
 -- ========================================
 CREATE TABLE organization (
@@ -140,4 +139,19 @@ CREATE TABLE users (
     password_hash VARCHAR(255) NOT NULL,
     role_id INTEGER REFERENCES roles(role_id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ========================================
+-- Volunteer Table (junction table)
+-- Many-to-many: a user can volunteer for many projects, and a
+-- project can have many volunteers. The composite primary key stops
+-- the same user from volunteering for the same project twice.
+-- ========================================
+CREATE TABLE volunteer (
+    user_id INTEGER NOT NULL,
+    project_id INTEGER NOT NULL,
+    signed_up_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, project_id),
+    FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE,
+    FOREIGN KEY (project_id) REFERENCES service_project (project_id) ON DELETE CASCADE
 );

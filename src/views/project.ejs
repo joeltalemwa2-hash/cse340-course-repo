@@ -23,6 +23,24 @@
         <a class="btn btn--ghost" href="/edit-project/<%= projectDetails.project_id %>">Edit Project</a>
         <a class="btn btn--ghost" href="/assign-categories/<%= projectDetails.project_id %>">Edit Categories</a>
       </p>
+        <% } %>
+
+    <% if (isLoggedIn) { %>
+      <div class="volunteer-box">
+        <% if (isVolunteering) { %>
+          <p>You are volunteering for this project.</p>
+          <form action="/remove-volunteer/<%= projectDetails.project_id %>" method="POST">
+            <input type="hidden" name="returnTo" value="project">
+            <button type="submit" class="btn btn--ghost">Remove me as a volunteer</button>
+          </form>
+        <% } else { %>
+          <p>Want to help with this project?</p>
+          <form action="/volunteer/<%= projectDetails.project_id %>" method="POST">
+            <input type="hidden" name="returnTo" value="project">
+            <button type="submit" class="btn btn--primary">Volunteer for this project</button>
+          </form>
+        <% } %>
+      </div>
     <% } %>
 
     <h2>Categories</h2>
